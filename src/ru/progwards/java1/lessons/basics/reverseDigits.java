@@ -7,9 +7,9 @@ class reverseDigits {
            int i1 = (number - (number%100))/100; // 100 --> 1
            int i2 = number%100 - number%10; // 10 --> 10
            int i3 = (number%10)*100;// 1 --> 100
-           int reversenumber = i1 + i2 + i3;
-           System.out.println(reversenumber);
-           return reversenumber;
+           int reversedigits = i1 + i2 + i3;
+           System.out.println(reversedigits);
+           return reversedigits;
   }
 
     public static void main(String[] args) {
@@ -73,7 +73,7 @@ class Astronomy {
 class AccuracyDoubleFloat {
 
     public static double volumeBallDouble(double radius) {
-        final double PI = 3.14;
+        final double PI = 3.14D;
         double volumdoub =(4 * PI * radius * radius * radius)/3;
         return volumdoub;
     }
@@ -86,7 +86,7 @@ class AccuracyDoubleFloat {
     public static double calculateAccuracy(double radius) {
         double d=radius;
         float f=(float)d;
-        double m = volumeBallDouble(f) - volumeBallFloat(f);
+        double m =volumeBallDouble(radius) - volumeBallFloat(f) ;
         return m;
     }
 
@@ -96,8 +96,8 @@ class AccuracyDoubleFloat {
             System.out.println(volumeBallDouble(1));
             volumeBallFloat(1);
             System.out.println(volumeBallFloat(1));
-            calculateAccuracy(1);
-        System.out.println(calculateAccuracy(1));
+            calculateAccuracy(6371.2);
+        System.out.println(calculateAccuracy(6371.2));
         }
 
 }
