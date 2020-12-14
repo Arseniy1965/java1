@@ -177,61 +177,45 @@ class ComplexNum {
     int c;
     int d;
 
-    public ComplexNum(int a, int b) {
+    public ComplexNum(int a, int b)
+    {
         this.a = a;
         this.b = b;
     }
 
-    public String toString() {
+    public String toString()
+    {
         return a + "+" + b + "i";
     }
 
     public ComplexNum add(ComplexNum num)
     {
-        this.c = c;
-        this.d = d;
-         a = a + c;
-         b = b + d;
-
-      return new ComplexNum(a,b);
+        return new ComplexNum(a + num.a,b + num.b);
     }
 
     public ComplexNum sub(ComplexNum num)
     {
-        a = a - c;
-        b = b - d;
-        return new ComplexNum(a,b);
+        return new ComplexNum(a - num.a,b - num.b);
     }
 
     public ComplexNum mul(ComplexNum num)
     {
-        a = a * c - b * d;
-        b = b * c + a * d;
-        return new ComplexNum(a,b);
-
+        return new ComplexNum(a * num.a - b * num.b,b * num.b + a * num.a);
     }
 
-    public ComplexNum div(ComplexNum num) {
-        a = (a * c + b * d) / (c * c + d * d);
-        b = (b * c - a * d) / (c * c + d * d);
-        return new ComplexNum(a,b);
-
-    }
-
-
-    public static void main(String[] args) {
-        int a = 2;
-        int b = 2;
-        int c = 4;
-        int d = 1;
+    public ComplexNum div(ComplexNum num)
+    {
         
+        return new ComplexNum((a * num.a + b * num.b) / (num.a * num.a + num.b * num.b),(b * num.a - a * num.b) / (num.a * num.a + num.b * num.b));
 
-        //ComplexNum num1 = new ComplexNum(2, 2);
-        //ComplexNum num2 = new ComplexNum(4, 1);
-     //   System.out.println (add(a, b));
-        //System.out.println(new ComplexNum (a - c, b - d));
-       // System.out.println(new ComplexNum(a * c - b * d, b * c + a * d));
-       // System.out.println(new ComplexNum(((a * c) + (b * d)) / ((c * c) + (d * d)),
-          //    ((b * c) - (a * d)) / ((c * c) + (d * d));
+    }
+
+
+    public static void main(String[] args)
+    {
+        System.out.println (new ComplexNum(1, 1).add(new ComplexNum(99, 99)).toString());
+        System.out.println (new ComplexNum(99, 99).sub(new ComplexNum(1, 1)).toString());
+        System.out.println (new ComplexNum(1, 1).mul(new ComplexNum(99, 99)).toString());
+        System.out.println (new ComplexNum(99, 99).div(new ComplexNum(1, 1)).toString());
     }
 }
