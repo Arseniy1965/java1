@@ -200,12 +200,12 @@ class ComplexNum {
 
     public ComplexNum mul(ComplexNum num)
     {
-        return new ComplexNum(a * num.a - b * num.b,b * num.b + a * num.a);
+        return new ComplexNum(a * num.a - b * num.b,b * num.a + a * num.b);
     }
 
     public ComplexNum div(ComplexNum num)
     {
-        
+
         return new ComplexNum((a * num.a + b * num.b) / (num.a * num.a + num.b * num.b),(b * num.a - a * num.b) / (num.a * num.a + num.b * num.b));
 
     }
@@ -215,7 +215,7 @@ class ComplexNum {
     {
         System.out.println (new ComplexNum(1, 1).add(new ComplexNum(99, 99)).toString());
         System.out.println (new ComplexNum(99, 99).sub(new ComplexNum(1, 1)).toString());
-        System.out.println (new ComplexNum(1, 1).mul(new ComplexNum(99, 99)).toString());
+        System.out.println (new ComplexNum(1, 2).mul(new ComplexNum(99, 98)).toString());
         System.out.println (new ComplexNum(99, 99).div(new ComplexNum(1, 1)).toString());
     }
 }
