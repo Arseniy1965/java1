@@ -27,13 +27,24 @@ public class BigAlgebra {
     }
 
     static BigInteger fibonacci(int n) {
-        return n <= 2 ? BigInteger.ONE : (fibonacci(n -1).add(fibonacci(n - 2)));
+
+        if (n <= 2) return BigInteger.ONE;
+
+        BigInteger big1 = BigInteger.ONE;
+        BigInteger big2 = BigInteger.ONE;
+        BigInteger result = null;
+        for (int i = 3; i < n; i++) {
+            result = big1.add(big2);
+            big2 = big1;
+            big1 = result;
+        }
+        return result;
     }
 
     public static void main(String[] args) {
 
-    System.out.println(fastPow(BigDecimal.valueOf(21),13));
-    System.out.println(fibonacci(3));
-
+    System.out.println(fastPow(BigDecimal.valueOf(21),13));//21 13
+    System.out.println(Math.pow(21.0,13.0));
+    System.out.println(fibonacci(100));
     }
 }
