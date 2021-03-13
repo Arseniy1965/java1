@@ -33,7 +33,7 @@ public class BigAlgebra {
         BigInteger big1 = BigInteger.ONE;
         BigInteger big2 = BigInteger.ONE;
         BigInteger result = null;
-        for (int i = 3; i < n; i++) {
+        for (int i = 2; i < n; i++) {
             result = big1.add(big2);
             big2 = big1;
             big1 = result;
